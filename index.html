@@ -12,7 +12,14 @@
         <!-- frappe -->
         <script src="https://unpkg.com/frappe-charts@1.2.4/dist/frappe-charts.min.iife.js"></script>
     </head>
-    <body>     
+    <body>   
+        <!-- form to enter municipality name -->
+        <form id="input-form">
+            <input type="text" id="input-area" placeholder="Enter municipality name" />
+            <button id="submit-data">Fetch population data</button>  
+        </form>
+        
+        <!-- chart -->
         <h1>Population data</h1>
         <div id="chart"></div>
     </body>
