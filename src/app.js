@@ -63,7 +63,7 @@ fetch(url, {
           values: data.value  
         }
       ]
-    },
+      },
     type: 'line',
     height: 450,  
     colors: ['#eb5146'] 
