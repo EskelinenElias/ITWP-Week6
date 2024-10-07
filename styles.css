@@ -1,0 +1,7 @@
+/* sources: see file README.md */
+
+/* set height of the map */
+#map {
+    height: 97vh;
+    width: 100%;
+}
