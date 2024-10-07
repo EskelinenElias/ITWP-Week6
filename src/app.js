@@ -2,40 +2,40 @@
 
 const requestBody = {
   "query": [
-      {
-          "code": "Vuosi",
-          "selection": {
-              "filter": "item",
-              "values": [
-                  "2000", "2001", "2002", "2003", "2004", 
-                  "2005", "2006", "2007", "2008", "2009", 
-                  "2010", "2011", "2012", "2013", "2014", 
-                  "2015", "2016", "2017", "2018", "2019", 
-                  "2020", "2021"
-              ]
-          }
-      },
-      {
-          "code": "Alue",
-          "selection": {
-              "filter": "item",
-              "values": [
-                  "SSS"  
-              ]
-          }
-      },
-      {
-          "code": "Tiedot",
-          "selection": {
-              "filter": "item",
-              "values": [
-                  "vaesto" 
-              ]
-          }
+    {
+      "code": "Vuosi",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "2000", "2001", "2002", "2003", "2004", 
+          "2005", "2006", "2007", "2008", "2009", 
+          "2010", "2011", "2012", "2013", "2014", 
+          "2015", "2016", "2017", "2018", "2019", 
+          "2020", "2021"
+        ]
       }
+    },
+    {
+      "code": "Alue",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "SSS"  
+        ]
+      }
+    },
+    {
+      "code": "Tiedot",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "vaesto" 
+        ]
+      }
+    }
   ],
   "response": {
-      "format": "json-stat2" 
+    "format": "json-stat2" 
   }
 };
 
@@ -52,18 +52,20 @@ fetch(url, {
   }
   return response.json();
 }).then((data) => {
+  // prepare chart data
+  const chartData = {
+    labels: Object.values(data.dimension.Vuosi.category.label), 
+    datasets: [
+      {
+        name: "Population",
+        values: data.value  
+      }
+    ]
+  }
   // create a chart
   const chart = new frappe.Chart("#chart", {
     title: "Population Growth in Finland (2000-2021)",
-    data: {
-      labels: Object.values(data.dimension.Vuosi.category.label), 
-      datasets: [
-        {
-          name: "Population",
-          values: data.value  
-        }
-      ]
-      },
+    data: chartData,
     type: 'line',
     height: 450,  
     colors: ['#eb5146'] 
