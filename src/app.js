@@ -52,7 +52,22 @@ fetch(url, {
   }
   return response.json();
 }).then((data) => {
-  console.log(data);
+  // create a chart
+  const chart = new frappe.Chart("#chart", {
+    title: "Population Growth in Finland (2000-2021)",
+    data: {
+      labels: Object.values(data.dimension.Vuosi.category.label), 
+      datasets: [
+        {
+          name: "Population",
+          values: data.value  
+        }
+      ]
+    },
+    type: 'line',
+    height: 450,  
+    colors: ['#eb5146'] 
+  });
 }).catch(error => {
-    console.error("Error fetching population data:", error);
+  console.error("Error fetching population data:", error);
 });
