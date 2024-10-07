@@ -57,7 +57,7 @@ fetch(url, {
     labels: Object.values(data.dimension.Vuosi.category.label), 
     datasets: [
       {
-        name: "Population",
+        //name: "Population",
         values: data.value  
       }
     ]
