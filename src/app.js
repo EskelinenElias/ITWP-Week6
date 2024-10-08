@@ -136,14 +136,14 @@ document.getElementById("add-data").addEventListener("click", function () {
   chartData.labels.push(predictedLabel.toString());
   // add the predicted datapoint to the chart
   //chart.addDataPoint(predictedLabel.toString(), [predictedValue]);
-  // chart.update(chartData); 
-  chart = new frappe.Chart("#chart", {
-    title: `Population Growth in ${municipalityName.charAt(0).toUpperCase() + municipalityName.slice(1)}`,
-    data: chartData,
-    type: 'line',
-    height: 450,  
-    colors: ['#eb5146'] 
-  });
+  chart.update(chartData); 
+  // chart = new frappe.Chart("#chart", {
+  //   title: `Population Growth in ${municipalityName.charAt(0).toUpperCase() + municipalityName.slice(1)}`,
+  //   data: chartData,
+  //   type: 'line',
+  //   height: 450,  
+  //   colors: ['#eb5146'] 
+  // });
 }); 
 
 
@@ -180,7 +180,7 @@ let chartData = {
 let chart = null; 
 
 // get municipality details
-if (!localStorage.getItem("municipalityCode")) {
+if (!localStorage.getItem("municipalityCode") || !localStorage.getItem("municipalityName")) {
   localStorage.setItem("municipalityCode", "SSS"); 
   localStorage.getItem("municipalityName", "Finland"); 
 }
