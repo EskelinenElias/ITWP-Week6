@@ -135,7 +135,8 @@ document.getElementById("add-data").addEventListener("click", function () {
   chartData.datasets[0].values.push(predictedValue);
   chartData.labels.push(predictedLabel.toString());
   // add the predicted datapoint to the chart
-  chart.addDataPoint(predictedLabel.toString(), [predictedValue]);
+  //chart.addDataPoint(predictedLabel.toString(), [predictedValue]);
+  chart.update(chartData); 
 }); 
 
 
