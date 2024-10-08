@@ -112,12 +112,11 @@ document.getElementById("input-form").addEventListener("submit", function(event)
     chartData.datasets = [{ name: "Population", values: data.value }]
     // add the updated data to the chart
     chart = new frappe.Chart("#chart", {
-      ...chart, 
       title: `Population Growth in ${municipalityName.charAt(0).toUpperCase() + municipalityName.slice(1)}`,
       data: chartData,
-      /* type: 'line',
+      type: 'line',
       height: 450,  
-      colors: ['#eb5146'] */ 
+      colors: ['#eb5146'] 
     });
   })
   .catch(error => {
