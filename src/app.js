@@ -136,7 +136,14 @@ document.getElementById("add-data").addEventListener("click", function () {
   chartData.labels.push(predictedLabel.toString());
   // add the predicted datapoint to the chart
   //chart.addDataPoint(predictedLabel.toString(), [predictedValue]);
-  chart.update(chartData); 
+  // chart.update(chartData); 
+  chart = new frappe.Chart("#chart", {
+    title: `Population Growth in ${municipalityName.charAt(0).toUpperCase() + municipalityName.slice(1)}`,
+    data: chartData,
+    type: 'line',
+    height: 450,  
+    colors: ['#eb5146'] 
+  });
 }); 
 
 
