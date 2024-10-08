@@ -83,7 +83,7 @@ document.getElementById("input-form").addEventListener("submit", function(event)
   let municipalityCode = getMunicipalityCode(municipalityName); 
   // if a matching municipality code is not found, alert the user and return
   if (!municipalityCode) {
-    alert("Municipality not found. Please try again.");
+    // alert("Municipality not found. Please try again.");
     return; 
   }
   // save the municipality details to local storage for newchart.js
@@ -109,7 +109,7 @@ document.getElementById("input-form").addEventListener("submit", function(event)
   }).then(data => {
     // update data in the container
     chartData.labels = Object.values(data.dimension.Vuosi.category.label); 
-    chartData.datasets = [{ name: "Population", values: data.value }]
+    chartData.datasets = [{ name: "Population", values: data.value }];
     // add the updated data to the chart
     chart = new frappe.Chart("#chart", {
       title: `Population Growth in ${municipalityName.charAt(0).toUpperCase() + municipalityName.slice(1)}`,
@@ -173,7 +173,7 @@ fetch("https://statfin.stat.fi/PxWeb/api/v1/en/StatFin/synt/statfin_synt_pxt_12d
 // container for chart data
 let chartData = {
   labels: [],
-  datasets: []
+  datasets: {}
 }
 
 // create a chart
@@ -203,7 +203,7 @@ fetch("https://statfin.stat.fi/PxWeb/api/v1/en/StatFin/synt/statfin_synt_pxt_12d
 }).then((data) => {
   // update data in the container
   chartData.labels = Object.values(data.dimension.Vuosi.category.label); 
-  chartData.datasets = [{ name: "Population", values: data.value }]
+  chartData.datasets = [{ name: "Population", values: data.value }];
   // create chart 
   chart = new frappe.Chart("#chart", {
     title: `Population Growth in ${municipalityName.charAt(0).toUpperCase() + municipalityName.slice(1)}`,
