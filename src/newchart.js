@@ -89,7 +89,7 @@ async function main() {
     ]
   };
   // create chart
-  chart = new frappe.Chart("#bd-chart", {
+  chart = new frappe.Chart("#chart", {
     title: `Births and deaths in ${ municipalityName.charAt(0).toUpperCase() + municipalityName.slice(1)}`,
     data: chartData,
     type: "bar",
