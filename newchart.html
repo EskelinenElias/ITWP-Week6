@@ -1,0 +1,28 @@
+<!-- sources: see file README.md -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Birth and death data</title>
+        <!-- add script and stylesheet -->
+        <script src="src/newchart.js" defer></script>
+        <link rel="stylesheet" href="src/styles.css"> 
+        <!-- add Frappe charts -->
+        <script src="https://unpkg.com/frappe-charts@1.2.4/dist/frappe-charts.min.iife.js"></script>
+    </head>
+    <body>
+        <h1>Birth and death data</h1>
+        <!-- navigation -->
+        <button id="navigation">See population growth data</button>
+        <script>
+            // add event listener for the navigation button
+            document.getElementById("navigation").addEventListener("click", function() {
+                window.location.href = "index.html";
+            });
+        </script>
+        <!-- chart -->
+        <div id="bd-chart"></div>
+    </body>
+</html>

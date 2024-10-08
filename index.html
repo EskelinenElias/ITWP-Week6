@@ -1,26 +1,34 @@
 <!-- sources: see file README.md -->
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Introduction to Web Programming: Week 6</title>
-        <!-- stylesheet  and script -->
-        <link rel="stylesheet" href="src/styles.css">
+        <title>Population data</title>
+        <!-- add script and stylesheet -->
         <script src="src/app.js" defer></script>
-        <!-- frappe -->
+        <link rel="stylesheet" href="src/styles.css">
+        <!-- add Frappe charts -->
         <script src="https://unpkg.com/frappe-charts@1.2.4/dist/frappe-charts.min.iife.js"></script>
     </head>
     <body>   
+        <h1>Population data</h1>
         <!-- form to enter municipality name -->
         <form id="input-form">
             <input type="text" id="input-area" placeholder="Enter municipality name" />
             <button id="submit-data">Fetch population data</button>  
         </form>
-        
+        <!-- add data button -->
+        <button id="add-data">Add Predicted Data</button>      
+        <!-- navigation -->
+        <button id="navigation">See birth and death data</button>  
+        <script>
+            document.getElementById("navigation").addEventListener("click", function() {
+                window.location.href = "newchart.html";
+            });
+        </script>    
         <!-- chart -->
-        <h1>Population data</h1>
         <div id="chart"></div>
     </body>
 </html>
